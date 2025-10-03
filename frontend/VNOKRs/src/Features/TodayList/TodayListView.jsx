@@ -1,6 +1,6 @@
 // ==================== FILE: src/Features/TodayList/TodayListView.jsx ====================
 import React, { useState } from 'react';
-import { Plus, Trash2 } from 'lucide-react';  // ✅ Đã xóa Calendar
+import { Plus, Trash2 } from 'lucide-react';
 import CONSTANTS, { STATUS_COLORS } from '../../Assets/constants';
 
 const TodayListView = ({ tasks, setTasks, selectedDate, setSelectedDate }) => {
@@ -26,7 +26,7 @@ const TodayListView = ({ tasks, setTasks, selectedDate, setSelectedDate }) => {
   };
 
   const changeTaskStatus = (id, newStatus) => {
-    setTasks(tasks.map(task => 
+    setTasks(tasks.map(task =>
       task.id === id ? { ...task, status: newStatus } : task
     ));
   };
@@ -34,24 +34,24 @@ const TodayListView = ({ tasks, setTasks, selectedDate, setSelectedDate }) => {
   return (
     <div className="max-w-5xl mx-auto">
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+        {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-2xl font-bold text-gray-800">Danh sách công việc</h2>
-          <div className="flex items-center gap-3">
-            <input
-              type="date"
-              value={selectedDate}
-              onChange={(e) => setSelectedDate(e.target.value)}
-              className="px-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
+          <input
+            type="date"
+            value={selectedDate}
+            onChange={(e) => setSelectedDate(e.target.value)}
+            className="px-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
         </div>
 
+        {/* Input task */}
         <div className="flex gap-3 mb-6">
           <input
             type="text"
             value={newTask}
             onChange={(e) => setNewTask(e.target.value)}
-            onKeyPress={(e) => e.key === 'Enter' && addTask()}
+            onKeyDown={(e) => e.key === 'Enter' && addTask()}
             placeholder="Thêm công việc mới..."
             className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
@@ -72,6 +72,7 @@ const TodayListView = ({ tasks, setTasks, selectedDate, setSelectedDate }) => {
           </button>
         </div>
 
+        {/* Status summary */}
         <div className="grid grid-cols-5 gap-4 mb-6">
           {CONSTANTS.TASK_STATUSES.map((status) => (
             <div key={status} className="bg-gray-50 rounded-lg p-4 border border-gray-200">
@@ -83,9 +84,13 @@ const TodayListView = ({ tasks, setTasks, selectedDate, setSelectedDate }) => {
           ))}
         </div>
 
+        {/* Task list */}
         <div className="space-y-3">
           {tasks.map((task) => (
-            <div key={task.id} className={`flex items-center gap-4 p-4 rounded-lg border-2 transition-all ${STATUS_COLORS[task.status]}`}>
+            <div
+              key={task.id}
+              className={`flex items-center gap-4 p-4 rounded-lg border-2 transition-all ${STATUS_COLORS[task.status]}`}
+            >
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-2">
                   <p className="text-sm font-medium text-gray-800">{task.text}</p>

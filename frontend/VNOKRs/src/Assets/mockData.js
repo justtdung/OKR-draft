@@ -3,7 +3,11 @@ import { Building2, User, Users } from 'lucide-react';
 
 export const MOCK_DATA = {
   employeesNotCreated: ['Nguyễn Văn B', 'Trần Thị C', 'Lê Văn D', 'Phạm Thị E', 'Hoàng Văn F'],
+
+  employeesCreated: ['Nguyễn Văn A', 'Trần Thị B', 'Lê Văn C', 'Hoàng Văn E'],
   
+  employeesCompleted: ['Nguyễn Văn A', 'Trần Thị B'],
+
   summaryCards: [
     { 
       icon: Building2, 
@@ -39,7 +43,7 @@ export const MOCK_DATA = {
       progressColor: 'bg-purple-500' 
     }
   ],
-  
+
   okrsList: [
     { 
       id: 1, 
@@ -75,79 +79,25 @@ export const MOCK_DATA = {
       progressColor: 'bg-yellow-500' 
     }
   ],
-  
-  // ⭐ QUAN TRỌNG: Đảm bảo có todayTasksData
+
   todayTasksData: [
-    { 
-      id: 1, 
-      text: 'Review OKR Q4 với team Marketing', 
-      status: 'Đang tiến hành', 
-      time: '09:00 AM', 
-      priority: 'Cao' 
-    },
-    { 
-      id: 2, 
-      text: 'Họp với CEO về chiến lược mở rộng', 
-      status: 'Đã đóng', 
-      time: '10:30 AM', 
-      priority: 'Cao' 
-    },
-    { 
-      id: 3, 
-      text: 'Cập nhật tiến độ dự án vào hệ thống', 
-      status: 'Chưa xử lý', 
-      time: '02:00 PM', 
-      priority: 'Trung bình' 
-    },
-    { 
-      id: 4, 
-      text: 'Phản hồi email khách hàng', 
-      status: 'Đang tiến hành', 
-      time: '03:30 PM', 
-      priority: 'Cao' 
-    },
-    { 
-      id: 5, 
-      text: 'Chuẩn bị báo cáo tuần', 
-      status: 'Chưa xử lý', 
-      time: '04:00 PM', 
-      priority: 'Thấp' 
-    }
+    { id: 1, text: 'Review OKR Q4 với team Marketing', status: 'Đang tiến hành', time: '09:00 AM', priority: 'Cao' },
+    { id: 2, text: 'Họp với CEO về chiến lược mở rộng', status: 'Đã đóng', time: '10:30 AM', priority: 'Cao' },
+    { id: 3, text: 'Cập nhật tiến độ dự án vào hệ thống', status: 'Chưa xử lý', time: '02:00 PM', priority: 'Trung bình' },
+    { id: 4, text: 'Phản hồi email khách hàng', status: 'Đang tiến hành', time: '03:30 PM', priority: 'Cao' },
+    { id: 5, text: 'Chuẩn bị báo cáo tuần', status: 'Chưa xử lý', time: '04:00 PM', priority: 'Thấp' }
   ],
-  
+
   dashboardStats: [
-    { 
-      label: 'Tổng OKRs', 
-      value: '44', 
-      change: '+12%', 
-      color: 'text-blue-600', 
-      bgColor: 'bg-blue-50' 
-    },
-    { 
-      label: 'Hoàn thành', 
-      value: '32', 
-      change: '+8%', 
-      color: 'text-green-600', 
-      bgColor: 'bg-green-50' 
-    },
-    { 
-      label: 'Đang thực hiện', 
-      value: '8', 
-      change: '+3%', 
-      color: 'text-yellow-600', 
-      bgColor: 'bg-yellow-50' 
-    },
-    { 
-      label: 'Chậm tiến độ', 
-      value: '4', 
-      change: '-2%', 
-      color: 'text-red-600', 
-      bgColor: 'bg-red-50' 
-    }
+    { label: 'Tổng OKRs', value: '44', change: '+12%', color: 'text-blue-600', bgColor: 'bg-blue-50' },
+    { label: 'Hoàn thành', value: '32', change: '+8%', color: 'text-green-600', bgColor: 'bg-green-50' },
+    { label: 'Đang thực hiện', value: '8', change: '+3%', color: 'text-yellow-600', bgColor: 'bg-yellow-50' },
+    { label: 'Chậm tiến độ', value: '4', change: '-2%', color: 'text-red-600', bgColor: 'bg-red-50' }
   ],
-  
+
   todayListStats: {
-    created: { count: 85, total: 100, percent: 85 },
-    completed: { count: 72, total: 100, percent: 72 }
+    created: { count: 85, total: 100, percent: 85, employees: ['Nguyễn Văn A', 'Trần Thị B', 'Lê Văn C'] },
+    completed: { count: 72, total: 100, percent: 72, employees: ['Nguyễn Văn A', 'Trần Thị B'] },
+    notCreated: ['Nguyễn Văn B', 'Trần Thị C', 'Lê Văn D', 'Phạm Thị E', 'Hoàng Văn F']
   }
 };
